@@ -1,0 +1,36 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/mnt/nfs/homes/ajeannin/github/piscine-CPP/CPP00/ex01/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+CONTACT_HPP	Contact.hpp	/^#define CONTACT_HPP$/;"	d
+Contact	Contact.cpp	/^Contact::Contact() {}$/;"	f	class:Contact
+Contact	Contact.cpp	/^Contact::Contact(const std::string &first_name, const std::string &last_name,$/;"	f	class:Contact
+Contact	Contact.hpp	/^class Contact {$/;"	c
+PHONEBOOK_HPP	PhoneBook.hpp	/^#define PHONEBOOK_HPP$/;"	d
+PhoneBook	PhoneBook.hpp	/^class PhoneBook {$/;"	c
+addContact	PhoneBook.cpp	/^void PhoneBook::addContact(const Contact &new_contact)$/;"	f	class:PhoneBook	typeref:typename:void
+contacts	PhoneBook.hpp	/^	Contact contacts[8];$/;"	m	class:PhoneBook	typeref:typename:Contact[8]
+count	PhoneBook.hpp	/^	int count = 0;$/;"	m	class:PhoneBook	typeref:typename:int
+createContact	main.cpp	/^Contact createContact() {$/;"	f	typeref:typename:Contact
+darkest_secret	Contact.hpp	/^	std::string darkest_secret;$/;"	m	class:Contact	typeref:typename:std::string
+display	Contact.cpp	/^void Contact::display() const {$/;"	f	class:Contact	typeref:typename:void
+displayContacts	PhoneBook.cpp	/^void PhoneBook::displayContacts() const$/;"	f	class:PhoneBook	typeref:typename:void
+first_name	Contact.hpp	/^	std::string first_name;$/;"	m	class:Contact	typeref:typename:std::string
+getContact	PhoneBook.cpp	/^Contact PhoneBook::getContact(int index) const$/;"	f	class:PhoneBook	typeref:typename:Contact
+getDarkest_secret	Contact.cpp	/^std::string Contact::getDarkest_secret() const { return darkest_secret; }$/;"	f	class:Contact	typeref:typename:std::string
+getFirst_name	Contact.cpp	/^std::string Contact::getFirst_name() const { return first_name; }$/;"	f	class:Contact	typeref:typename:std::string
+getLast_name	Contact.cpp	/^std::string Contact::getLast_name() const { return last_name; }$/;"	f	class:Contact	typeref:typename:std::string
+getNickname	Contact.cpp	/^std::string Contact::getNickname() const { return nickname; }$/;"	f	class:Contact	typeref:typename:std::string
+getPhone_number	Contact.cpp	/^std::string Contact::getPhone_number() const { return phone_number; }$/;"	f	class:Contact	typeref:typename:std::string
+last_name	Contact.hpp	/^	std::string last_name;$/;"	m	class:Contact	typeref:typename:std::string
+main	main.cpp	/^int main()$/;"	f	typeref:typename:int
+nickname	Contact.hpp	/^	std::string nickname;$/;"	m	class:Contact	typeref:typename:std::string
+phone_number	Contact.hpp	/^	std::string phone_number;$/;"	m	class:Contact	typeref:typename:std::string
+searchContacts	main.cpp	/^void searchContacts(const PhoneBook& phoneBook) {$/;"	f	typeref:typename:void
