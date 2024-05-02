@@ -14,13 +14,18 @@ bool is_all_alpha(const std::string &str)
 	return true;
 }
 
-Contact createContact() {
+Contact createContact()
+{
     std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
 
 	while (true)
 	{
     	std::cout << "Enter First Name: ";
-    	std::getline(std::cin, firstName);
+		if (!std::getline(std::cin, firstName))
+		{
+			std::cin.clear();
+			clearerr(stdin);
+		}
 		if (is_all_alpha(firstName))
 			break;
 		else
@@ -30,7 +35,11 @@ Contact createContact() {
     while (true)
 	{
 		std::cout << "Enter Last Name: ";
-    	std::getline(std::cin, lastName);
+		if (!std::getline(std::cin, lastName))
+		{
+			std::cin.clear();
+			clearerr(stdin);
+		}
 		if (is_all_alpha(lastName))
 			break;
 		else
@@ -40,18 +49,42 @@ Contact createContact() {
 	while (true)
 	{
     	std::cout << "Enter Nick Name: ";
-    	std::getline(std::cin, nickName);
+		if (!std::getline(std::cin, nickName))
+		{
+			std::cin.clear();
+			clearerr(stdin);
+		}
 		if (is_all_alpha(nickName))
 			break;
 		else
 			std::cout << "Error: must contain only alphabetic characters. Try again" << std::endl;
 	}
 
-    std::cout << "Enter Phone Number: ";
-    std::getline(std::cin, phoneNumber);
+	while (true)
+	{
+		std::cout << "Enter Phone Number: ";
+		if (!std::getline(std::cin, phoneNumber))
+		{
+			std::cin.clear();
+			clearerr(stdin);
+			std::cout << "Error, empty line. Try again" << std::endl;
+		}
+		else
+			break ;
+	}
 
-    std::cout << "Enter Darkest Secret: ";
-    std::getline(std::cin, darkestSecret);
+	while (true)
+	{
+    	std::cout << "Enter Darkest Secret: ";
+    	if (!std::getline(std::cin, darkestSecret))
+		{
+			std::cin.clear();
+			clearerr(stdin);
+			std::cout << "Error, empty line. Try again" << std::endl;
+		}
+		else
+			break ;
+	}
 
 	return Contact(firstName, lastName, nickName, phoneNumber, darkestSecret);
 }
@@ -65,7 +98,10 @@ void searchContacts(const PhoneBook& phoneBook)
     while (!(std::cin >> index))
 	{
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		clearerr(stdin);
+		if (std::cin.eof())
+			std::cout << std::endl;
         std::cout << "Invalid input. Enter the index of the contact to display: ";
     }
     std::cin.ignore();
@@ -88,8 +124,12 @@ int main()
 	{
         std::string command;
         std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
-        std::getline(std::cin, command);
-
+        
+		if (!std::getline(std::cin, command))
+		{
+			std::cin.clear();
+			clearerr(stdin);
+		}
         if (command == "ADD")
             phoneBook.addContact(createContact());
         else if (command == "SEARCH")
@@ -101,4 +141,3 @@ int main()
     }
     return 0;
 }
-
