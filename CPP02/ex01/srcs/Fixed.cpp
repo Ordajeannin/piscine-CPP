@@ -4,6 +4,7 @@ Fixed::Fixed() : _stock(0) {std::cout << "Default constructor called" << std::en
 
 Fixed::Fixed(int const nb)
 {
+	std::cout << "int constructor called" << std::endl;
 	if (nb < (INT_MAX / (1 << _coma)) && nb > (INT_MIN / (1 << _coma)))
 		_stock = nb * (1 << _coma);
 	else
@@ -13,6 +14,7 @@ Fixed::Fixed(int const nb)
 Fixed::Fixed(float const nb)
 {
 	int nb2 = roundf(nb);
+	std::cout << "float constructor called" << std::endl;
 	if (nb2 < (INT_MAX / (1 << _coma)) && nb2 > (INT_MIN / (1 << _coma)))
 		_stock = roundf(nb * (1 << _coma));
 	else
@@ -43,7 +45,7 @@ std::ostream &operator<<(std::ostream &os, const Fixed &other)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits called" << std::endl;
+//	std::cout << "getRawBits called" << std::endl;
 	return this->_stock;
 }
 

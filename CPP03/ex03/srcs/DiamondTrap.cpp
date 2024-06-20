@@ -16,14 +16,25 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Frag
 	std::cout << "DiamondTrap constructor called : " << name << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &c) : ClapTrap(c), FragTrap(c), ScavTrap(c), _name(c._name)
+DiamondTrap::DiamondTrap(const DiamondTrap &copie)
 {
-	std::cout << "DiamondTrap copy constructor called : " << c._name << std::endl;
+	std::cout << "DiamondTrap constructor by copy called : " << copie._name << std::endl;
+	*this = copie;
 }
 
-DiamondTrap::~DiamondTrap()
+DiamondTrap::~DiamondTrap() {std::cout << "DiamondTrap destructor called" << std::endl;}
+
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &copie)
 {
-	std::cout << "DiamondTrap destructor called" << std::endl;
+	std::cout << "DiamondTrap copy assignement operator called" << std::endl;
+	if (this != &copie)
+	{
+		_name = copie._name;
+		_hitPoints = copie._hitPoints;
+		_energyPoints = copie._energyPoints;
+		_atkDamage = copie._atkDamage;
+	}
+	return *this;
 }
 
 void DiamondTrap::attack(ClapTrap &target)

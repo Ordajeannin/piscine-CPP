@@ -2,8 +2,8 @@
 
 int main( void )
 {
-	Fixed a(6);
-	Fixed b(12);
+	Fixed a(10000000);
+	Fixed b(-112);
 
 	std::cout << std::endl << std::endl;
 	std::cout << "a = " << a << std::endl;
