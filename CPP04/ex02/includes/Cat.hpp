@@ -2,18 +2,18 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
-    private:
-		std::string _name;
-	    const std::string _type;
+	private:
+		Brain *_brain;
 
     public:
         Cat();
-        Cat(std::string name);
         Cat(const Cat &c);
         ~Cat();
+		Cat &operator=(const Cat &c);
 
 		void makeSound() const;
 };

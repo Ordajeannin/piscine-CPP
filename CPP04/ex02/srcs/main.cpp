@@ -5,6 +5,7 @@ int main()
 {
 	int i = 15;
 	Animal *animals[i];
+//	Animal exemple = Animal();
 
 	for (int j = 0; j < i; j += 2)
 	{

@@ -1,6 +1,6 @@
 ########### V A R I A B L E S #############
 
-NAME		= Work
+NAME		= BurnThemAll
 INCLUDES	= -Iincludes
 SRC_DIR		= srcs
 OBJ_DIR		= obj
