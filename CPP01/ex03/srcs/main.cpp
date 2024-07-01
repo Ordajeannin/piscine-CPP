@@ -3,20 +3,20 @@
 
 int main()
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+	Weapon pen = Weapon("stylo bic");
+	HumanA jean("Jean Neige", pen);
+	jean.attack();
+	pen.setType("... something");
+	jean.attack();
+	
+	Weapon plume = Weapon("stylo plume");
+	HumanB john("John Snow");
+	john.attack();
+	
+	john.setWeapon(plume);
+	john.attack();
+	plume.setType("... something");
+	john.attack();
+	
 	return 0;
 }

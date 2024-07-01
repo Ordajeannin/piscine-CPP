@@ -21,7 +21,7 @@ int main()
 	std::cout << std::endl;
 
 	std::cout << "Testing unknown level:" << std::endl;
-	harl.complain("UNKNOWN");
+	harl.complain("jqkfyujysfh");
 	std::cout << std::endl;
 
 	return 0;
