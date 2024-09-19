@@ -11,17 +11,22 @@ int main()
 	DiamondTrap diam("d");
 	std::cout << std::endl;
     
-	clap.attack(scav);
+	clap.attack(diam);
     clap.beRepaired(3);
+	std::cout << std::endl;
 
-    scav.attack(frag);
+    scav.attack(diam);
     scav.guardGate();
+	std::cout << std::endl;
 
-	frag.attack(clap);
+	frag.attack(diam);
 	frag.highFivesGuys();
+	std::cout << std::endl;
 
 	diam.attack(clap);
 	diam.whoAmI();
+	diam.guardGate();
+	diam.highFivesGuys();
 	std::cout << std::endl;
 
     return 0;

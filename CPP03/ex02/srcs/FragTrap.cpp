@@ -64,5 +64,8 @@ void FragTrap::attack(ClapTrap &target)
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << this->_name << " : Hey dudes, chiiiiiill, what about a high fives instead?" << std::endl;
+	if (this->_hitPoints != 0)
+		std::cout << this->_name << " : Hey dudes, chiiiiiill, what about a high fives instead?" << std::endl;
+	else
+		std::cout << this->_name << " : esygfucygagrivquyagia... (seems like he want to say something, but maybe it's harder when you're dead.)" << std::endl;
 }

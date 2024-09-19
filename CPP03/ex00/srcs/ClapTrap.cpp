@@ -5,7 +5,7 @@ ClapTrap::ClapTrap() : _name("boustiflore"), _hitPoints(10), _energyPoints(10), 
 	std::cout << "Default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _atkDamage(5)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _atkDamage(10)
 {
 	std::cout << "Constructor called : " << name << std::endl;
 }
