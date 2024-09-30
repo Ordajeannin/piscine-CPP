@@ -15,6 +15,7 @@ INCLUDES    = -Iincludes
 SRC_DIR     = srcs
 OBJ_DIR     = obj
 CXX         = c++
+CTAGS		= ctags
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 CPPFLAGS    = -MMD
 
@@ -36,8 +37,10 @@ all             : \$(NAME)
 	@mkdir -p \$(@D)
 	@\$(CXX) \$(CPPFLAGS) \$(CXXFLAGS) \$(INCLUDES) -c \$< -o \$@
 
+tags			: \$(SRCS)
+	@\$(CTAGS) -R
 clean           :
-	\$(RM) -r \$(OBJ_DIR)
+	\$(RM) -r \$(OBJ_DIR) tags
 
 fclean          : clean
 	\$(RM) \$(NAME)
