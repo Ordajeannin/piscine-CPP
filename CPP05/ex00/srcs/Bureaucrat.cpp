@@ -45,7 +45,7 @@ std::ostream &Bureaucrat::operator<<(std::ostream& out, const Bureaucrat &c)
 std::ostream &operator<<(std::ostream& out, const Bureaucrat &c)
 {
 	std::cout << "Bureaucrat ostream overload called" << std::endl;
-	out << c.getName() << "(grade " << c.getGrade() << ")";
+	out << c.getName() << " (grade " << c.getGrade() << ")";
 	return out;
 }
 
@@ -61,23 +61,25 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::upGrade()
 {
+	std::cout << *this << " ask for an upGrade : ";
 	if (this->_grade < 2)
 		std::cout << "You're already the Boss, Boss" << std::endl;
 	else
 	{
 		this->_grade--;
-		std::cout << "Grade updated : you're now " << this->_grade << std::endl;
+		std::cout << "Grade updated -> you're now grade " << this->_grade << std::endl;
 	}
 }
 
 void Bureaucrat::downGrade()
 {
+	std::cout << *this << " is the target for a downGrade : ";
 	if (this->_grade > 149)
 		std::cout << "you can't have a lower grade, lill carpet" << std::endl;
 	else
 	{
 		this->_grade++;
-		std::cout << "Grade updated : you're now " << this->_grade << std::endl;
+		std::cout << "Grade updated -> you're now grade " << this->_grade << std::endl;
 	}
 }
 
