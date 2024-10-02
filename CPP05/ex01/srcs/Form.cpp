@@ -46,17 +46,20 @@ int			Form::getToExec() const
 	return this->_minToExec;
 }
 
-void		Form::beSigned(const Bureaucrat& c)
+bool		Form::beSigned(const Bureaucrat& c)
 {
 	if (c.getGrade() <= this->_minToSign)
+	{
 		this->_signed = 1;
+		return 1;
+	}
 	else
 		throw GradeTooLowException();
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return "Grade too low mais ANTOINE faut faire en sorte d avoir plusieurs messages possibles";
+	return "Grade too low";
 }
 
 const char *Form::GradeTooHighException::what() const throw()
@@ -66,7 +69,7 @@ const char *Form::GradeTooHighException::what() const throw()
 
 std::ostream &operator<<(std::ostream &out, const Form &c)
 {
-	out << c.getName() << " (" << c.getSigned() << "/"  << c.getToSign() << "/" << c.getToExec() << ")" << std::endl;
+	out << c.getName() << " (" << c.getSigned() << "/"  << c.getToSign() << "/" << c.getToExec() << ")";
 	return out;
 }
 

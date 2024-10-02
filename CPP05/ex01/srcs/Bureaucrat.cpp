@@ -45,7 +45,7 @@ std::ostream &Bureaucrat::operator<<(std::ostream& out, const Bureaucrat &c)
 
 std::ostream &operator<<(std::ostream& out, const Bureaucrat &c)
 {
-	std::cout << "Bureaucrat ostream overload called" << std::endl;
+//	std::cout << "Bureaucrat ostream overload called" << std::endl;
 	out << c.getName() << " (grade " << c.getGrade() << ")";
 	return out;
 }
@@ -87,18 +87,18 @@ void Bureaucrat::downGrade()
 void Bureaucrat::signForm(Form &t)
 {
 	if (t.getSigned() == 1)
-		std::cout << t << " is already signed" << std::endl;
+		std::cout << this->getName() << ", " << t << " is already signed" << std::endl;
 	else
 	{	
 		try
 		{
-			t.beSigned(*this);
+			if (t.beSigned(*this))
+				std::cout << *this << " signed " << t << std::endl;
 		}
 		catch (const std::exception &e)
 		{
 			std::cerr << *this << " couldn't sign " << t << " because " << e.what() << std::endl;
 		}
-		std::cout << *this << " signed " << t << std::endl;
 	}
 }
 
