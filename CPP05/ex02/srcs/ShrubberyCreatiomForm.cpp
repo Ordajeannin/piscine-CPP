@@ -28,7 +28,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void ShrubberyCreationForm::task(Bureaucrat const &e) const
+void ShrubberyCreationForm::task() const
 {
 	std::string 	filename = getTarget() + "_shrubbery";
 	std::ofstream	file(filename.c_str());

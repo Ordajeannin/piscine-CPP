@@ -2,6 +2,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
@@ -12,7 +13,7 @@ class ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &c);
 
-		void task(Bureaucrat const &executor) const;
+		void task() const;
 };
 
 #endif

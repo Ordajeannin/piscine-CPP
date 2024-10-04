@@ -26,6 +26,13 @@ Form::~Form()
 	std::cout << "Form destructor called : " << this->_name << std::endl;
 }
 
+Form &Form::operator=(const Form &c)
+{
+	std::cout << "Form copy assignement operator called" << std::endl;
+	if (this != &c)
+		this->_signed = c._signed;
+	return *this;
+}
 std::string Form::getName() const
 {
 	return this->_name;

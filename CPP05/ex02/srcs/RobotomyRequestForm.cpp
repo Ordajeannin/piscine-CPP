@@ -28,10 +28,10 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 	return *this;
 }
 
-void RobotomyRequestForm::task(Bureaucrat const &e) const
+void RobotomyRequestForm::task() const
 {
 	std::cout << "*some drilling noises*" << std::endl;
-	if (std::rand() % 2 == 0)
+	if (rand() % 2 == 0)
 		std::cout << getTarget() << " has been robotomized successfully" << std::endl;
 	else
 		std::cout << "The robotomy on " << getTarget() << " failed." << std::endl;

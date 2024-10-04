@@ -28,7 +28,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return *this;
 }
 
-void PresidentialPardonForm::task(Bureaucrat const &e) const
+void PresidentialPardonForm::task() const
 {
-	std::cout << e.getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

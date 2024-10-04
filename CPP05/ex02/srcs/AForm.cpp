@@ -81,7 +81,7 @@ void		AForm::execute(const Bureaucrat &e) const
 	else if (e.getGrade() > this->getToExec())
 		throw Bureaucrat::GradeTooLowException();
 	else
-		task(e);
+		task();
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
