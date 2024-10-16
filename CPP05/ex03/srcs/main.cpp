@@ -3,40 +3,37 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-	Bureaucrat 				obj1("-random fonctionnaire-", 140);
-	Bureaucrat 				obj2("-Boss-", 1);
-	ShrubberyCreationForm	file1("<<precommande frites jeudi midi>>");
-	RobotomyRequestForm		file2("<<Nuke>>");
-	PresidentialPardonForm  file3("Paul");
+	Bureaucrat	God("Neuro-Chirurgien", 1);
+	Intern 		carabin;
+	AForm*		f1;
+	AForm*		f2;
+	AForm*		f3;
+	AForm*		bourragePapier;
 	std::cout << std::endl;
 
-	obj1.signForm(file1);
-	obj1.signForm(file2);
-	obj1.signForm(file3);
+	f1 = carabin.makeForm("shrubbery creation", "grass");
+	f2 = carabin.makeForm("robotomy request", "the intern");
+	f3 = carabin.makeForm("presidential pardon", "Pr. Sorbier");
+	bourragePapier = carabin.makeForm("augmentation de salaire", "moi");
 	std::cout << std::endl;
 
-	obj1.executeForm(file1);
-	obj1.executeForm(file2);
-	obj1.executeForm(file3);
+	God.signForm(*f1);
+	God.signForm(*f2);
+	God.signForm(*f3);
 	std::cout << std::endl;
 
-	obj2.signForm(file1);
-	obj2.signForm(file2);
-	obj2.signForm(file3);
+	God.executeForm(*f1);
+	God.executeForm(*f2);
+	God.executeForm(*f3);
 	std::cout << std::endl;
 
-	obj2.executeForm(file1);
-	obj2.executeForm(file2);
-	obj2.executeForm(file3);
-	std::cout << std::endl << std::endl;
-
-	for (int i = 0; i < 10; i++)
-	{
-		obj2.executeForm(file2);
-	}
-	std::cout << std::endl << std::endl;
-    return 0;
+	delete f1;
+	delete f2;
+	delete f3;
+	delete bourragePapier;
+	return 0;
 }
