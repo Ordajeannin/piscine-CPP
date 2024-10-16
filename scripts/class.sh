@@ -47,15 +47,22 @@ fclean          : clean
 
 re              : fclean all
 
+clear			:
+	clear
+
 test            : \$(NAME)
 	./\$(NAME)
+
+ctest			: clear test
 
 vtest           : \$(NAME)
 	valgrind ./\$(NAME)
 
+cvtest			: clear vtest
+
 -include \$(DEPS)
 
-.PHONY: all clean fclean re test vtest
+.PHONY: all clean fclean re test ctest vtest cvtest
 EOL
     echo "makefile has been created."
 }
