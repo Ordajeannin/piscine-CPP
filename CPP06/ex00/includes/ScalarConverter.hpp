@@ -3,9 +3,10 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include <limits>
 #include <cmath>
-#include <cctypes>
+#include <cctype>
 
 class ScalarConverter
 {
@@ -17,7 +18,7 @@ class ScalarConverter
 		static bool	isDouble(const std::string& str);
 
     public:
-		static void	converter(const std::string& literal);
+		static void	convert(const std::string& literal);
 };
 
 #endif
