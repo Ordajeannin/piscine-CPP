@@ -18,7 +18,7 @@ class Array
 
 		// Constructors //
         Array() : _array(NULL), _size(0) { std::cout << "Array default constructor called" << std::endl; }
-        Array(unsigned int size) : _array(new T[size]()), _size(size) { std::cout << "Array constructor called, size " << size << std::endl; };
+        Array(unsigned int size) : _array(new T[size]()), _size(size) { std::cout << "Array constructor called, size " << size << std::endl; }
         Array(const Array &c) : _array(new T[c._size]()), _size(c._size)
 		{
 			for (unsigned int i = 0; i < this->_size; i++)
@@ -79,7 +79,6 @@ class Array
 			public:
 				const char* what() const throw() { return "Array index out of bounds"; };
 		};
-
 };
 
 #endif
