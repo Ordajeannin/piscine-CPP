@@ -18,7 +18,15 @@ int main()
 	std::cout << "test : 0" << std::endl;
 	ScalarConverter::convert("0");
 	std::cout << std::endl;
+
+	std::cout << "test : 'a'" << std::endl;
+	ScalarConverter::convert("'a'");
+	std::cout << std::endl;
 	
+	std::cout << "test : 'A'" << std::endl;
+	ScalarConverter::convert("'A'");
+	std::cout << std::endl;
+
 	std::cout << "test : 42" << std::endl;
 	ScalarConverter::convert("42");
 	std::cout << std::endl;
@@ -35,8 +43,8 @@ int main()
 	ScalarConverter::convert("-42.0");
 	std::cout << std::endl;
 	
-	std::cout << "test : 42f" << std::endl;
-	ScalarConverter::convert("42f");
+	std::cout << "test : 42.0f" << std::endl;
+	ScalarConverter::convert("42.0f");
 	std::cout << std::endl;
 	
 	std::cout << "test : -42f" << std::endl;
