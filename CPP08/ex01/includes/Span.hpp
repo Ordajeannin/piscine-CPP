@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 class Span
 {
@@ -23,6 +24,7 @@ class Span
 		void 			addNumber(int n);
 		unsigned int 	shortestSpan() const;
 		unsigned int	longestSpan() const;
+		void			printSpan() const;
 		
 		class NotEnoughtNumbers : public std::exception
 		{
@@ -30,17 +32,23 @@ class Span
 				return "Not enought numbers to compare, must be at least 2"; }
 		};
 		
-		class ToMuchNumbers : public std::exception
+		class TooMuchNumbers : public std::exception
 		{
 			const char* what() const throw() { 
-				return "Already to much number in the Span"; }
+				return "Already too much numbers in the Span"; }
+		};
+
+		class SpanTooSmall : public std::exception
+		{
+			const char* what() const throw() {
+				return "Unable to copy, not enough place in span destination/span source too big"; }
 		};
 
 		template <typename it>
 		void	addNumbers(it begin, it end)
 		{
 			if (std::distance(begin, end) > static_cast<int>(_maxSize - _span.size()))
-				throw ToMuchNumbers();
+				throw TooMuchNumbers();
 			_span.insert(_span.end(), begin, end);
 		}
 };	

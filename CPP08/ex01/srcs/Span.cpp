@@ -10,26 +10,35 @@ Span::Span(const unsigned int maxSize) : _maxSize(maxSize)
 	std::cout << "Span constructor called : maxSize " << maxSize << std::endl;
 }
 
-Span::Span(const Span &c)
+Span::Span(const Span &c) : _maxSize(c._maxSize)
 {
 	*this = c;
 	std::cout << "Span copy constructor called" << std::endl;
 }
 
-Span &operator=(const Span &c)
+Span::~Span()
 {
-	if (*this != c)
+	std::cout << "Span destructor called" << std::endl;
+}
+
+Span& Span::operator=(const Span &c)
+{
+	if (this != &c)
 	{
-		this->_maxSize = c._maxSize;
-		this->_span = c._Span;
+		if (this->_maxSize >= c._span.size())
+			this->_span = c._span;
+		else
+			throw SpanTooSmall();
+//		else
+//			std::cout << "Unable to copy, not enought place left in " << *this << std::endl;
 	}
 	return *this;
 }
 
 void Span::addNumber(int n)
 {
-	if (this->_span.size() > this->_maxSize)
-		throw ToMuchNumbers();
+	if (this->_span.size() >= this->_maxSize)
+		throw TooMuchNumbers();
 	this->_span.push_back(n);
 }
 
@@ -39,7 +48,7 @@ unsigned int Span::shortestSpan() const
 		throw NotEnoughtNumbers();
 
 	unsigned int result = UINT_MAX;
-	std::vetor<int> tmp = this->_span;
+	std::vector<int> tmp = this->_span;
 
 	std::sort(tmp.begin(), tmp.end());
 	for (std::vector<int>::iterator i = tmp.begin(); i != tmp.end(); i++)
@@ -55,8 +64,17 @@ unsigned int Span::longestSpan() const
 	if (this->_span.size() < 2)
 		throw NotEnoughtNumbers();
 
-	std::vector<int>::const_iterator max = std::max_element(this->_span.begin(), this->_span.end());
-	std::vector<int>::const_iterator min = std::min_element(this->_span.begin(), this->_span.end());
+	int max = *std::max_element(this->_span.begin(), this->_span.end());
+	int min = *std::min_element(this->_span.begin(), this->_span.end());
 
-	return (static_cast<unsigned int>(*max - *min));
+	return (static_cast<unsigned int>(max - min));
+}
+
+void Span::printSpan() const
+{
+	for (std::vector<int>::const_iterator it = this->_span.begin(); it != this->_span.end(); it++)
+	{
+		std::cout << " " << *it;
+	}
+	std::cout << std::endl;
 }
