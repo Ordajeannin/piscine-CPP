@@ -8,6 +8,12 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
+
+		typedef typename std::deque<T>::iterator iterator;
+		typedef typename std::deque<T>::const_iterator const_iterator;
+		typedef typename std::deque<T>::reverse_iterator reverse_iterator;
+		typedef typename std::deque<T>::const_reverse_iterator const_reverse_iterator;
+		
 		MutantStack() : std::stack<T>() {}
 		MutantStack(const MutantStack& other) : std::stack<T>(other) {}
 		~MutantStack() {}
@@ -19,36 +25,71 @@ class MutantStack : public std::stack<T>
 			return *this;
 		}
 
-		std::deque<T>::iterator begin() {
+		iterator begin() {
 			return this->c.begin();
 		}
 
-		std::deque<T>::iterator end() {
+		iterator end() {
 			return this->c.end();
 		}
-
-		std::deque<T>::const_iterator begin() const {
+		
+		const_iterator begin() const {
 			return this->c.begin();
 		}
 
-		std::deque<T>::const_iterator end() const {
+		const_iterator end() const {
+			return this->c.end();
+		}
+		
+		reverse_iterator rbegin() {
+			return this->c.rbegin();
+		}
+
+		reverse_iterator rend() {
+			return this->c.rend();
+		}
+		
+		const_reverse_iterator rbegin() const {
+			return this->c.rbegin();
+		}
+
+		const_reverse_iterator rend() const {
+			return this->c.rend();
+		}
+/*
+		typename std::deque<T>::iterator begin() {
+			return this->c.begin();
+		}
+
+		typename std::deque<T>::iterator end() {
 			return this->c.end();
 		}
 
-		std::deque<T>::reverse_iterator rbegin() {
+		typename std::deque<T>::const_iterator begin() const {
+			return this->c.begin();
+		}
+
+		typename std::deque<T>::const_iterator end() const {
+			return this->c.end();
+		}
+
+		typename std::deque<T>::reverse_iterator rbegin() {
 			return this->c.rbegin();
 		}
 
-		std::deque<T>::reverse_iterator rend() {
+		typename std::deque<T>::reverse_iterator rend() {
 			return this->c.rend();
 		}
 
-		std::deque<T>::const_reverse_iterator rbegin() const {
+		typename std::deque<T>::const_reverse_iterator rbegin() const {
 			return this->c.rbegin();
 		}
 
-		std::deque<T>::const_reverse_iterator rend() const {
+		typename std::deque<T>::const_reverse_iterator rend() const {
 			return this->c.rend();
 		}
+*/
 };
+
+#endif
 
