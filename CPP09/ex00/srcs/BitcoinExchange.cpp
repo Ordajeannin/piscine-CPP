@@ -45,8 +45,18 @@ bool BitcoinExchange::loadDatabase(const std::string &filename)
 		std::string date, rateStr;
 		if (std::getline(ss, date, ',') && std::getline(ss, rateStr))
 		{
+			if (!isValidDate(date))
+			{
+				std::cerr << line << std::endl;
+				break ;
+			}
 			double rate = atof(rateStr.c_str());
 			exchangeRates[date] = rate;
+		}
+		else
+		{
+			std::cerr << "Error: database file in badformat => " << line << std::endl;
+			return false;
 		}
 	}
 	file.close();
@@ -55,7 +65,40 @@ bool BitcoinExchange::loadDatabase(const std::string &filename)
 
 bool BitcoinExchange::isValidDate(const std::string &date)
 {
-	(void)date;
+	std::istringstream ss(date);
+	std::string yearStr, monthStr, dayStr;
+
+	int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	int daysb[] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	if (std::getline(ss, yearStr, '-') && std::getline(ss, monthStr, '-') && std::getline(ss, dayStr, ','))
+	{
+		int year = atoi(yearStr.c_str());
+		int month = atoi(monthStr.c_str());
+		int day = atoi(dayStr.c_str());
+
+		if (month < 0 || month > 12)
+		{
+			std::cerr << "Error: month format incorrect => ";
+			return false;
+		}
+		if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0))
+		{
+			if (day < 0 || day > days[month - 1])
+			{
+				std::cerr << "Error: classic year day format incorrect => ";
+			}
+		}
+		else
+		{
+			if (day < 0 || day > daysb[month - 1])
+				std::cerr << "Error: bissextile year day format incorrect => ";
+		}
+	}
+	else
+	{
+		std::cerr << "Error: whole date format incorrect => ";
+		return false;
+	}
 	return true;
 }
 
